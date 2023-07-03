@@ -12,6 +12,14 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <title>M2 Cart</title>
+
+  <style>
+    .changing-word {
+      font-size: 24px;
+      font-weight: bold;
+      color: brown;
+    }
+  </style>
 </head>
 
 <body style="background-color: #f2bcf8;">
@@ -29,7 +37,8 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             More To Explore
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -131,6 +140,60 @@
 
   </div>
   </div>
+
+  <div class="container">
+    <h2>
+      Welcome to the world of:<span>
+        <h2 class="changing-word" id="changingWord">Initial Word</h2>
+      </span></h2>
+
+
+    <script>
+      // Array of words to cycle through
+      const words = ['Fashion', 'Trends', 'Cloths '];
+
+      // Get the changing word element
+      const changingWordElement = document.getElementById('changingWord');
+
+      // Function to change the word with typing effect
+      function changeWord() {
+        // Get a random word from the words array
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const newWord = words[randomIndex];
+
+        // Clear the current word
+        changingWordElement.textContent = '';
+
+        // Index to track the character position
+        let charIndex = 0;
+
+        // Interval to reveal characters with typing effect
+        const typingInterval = setInterval(() => {
+          // Add the next character to the word
+          changingWordElement.textContent += newWord.charAt(charIndex);
+
+          // Increment the character position
+          charIndex++;
+
+          // Check if all characters have been revealed
+          if (charIndex >= newWord.length) {
+            clearInterval(typingInterval); // Stop the typing effect
+          }
+        }, 100); // Interval between character reveals (adjust as desired)
+      }
+
+      // Change the word initially
+      changeWord();
+
+      // Change the word every 3 seconds
+      setInterval(changeWord, 3000);
+    </script>
+    </h2>
+
+  </div>
+
+
+
   </div>
   <div class="container my-4">
     <div class="row mb-2">
